@@ -1,12 +1,11 @@
+"use client";
 import React from 'react'
 
 const Footer = () => {
   return (
-    <div>
-        <footer className="bg-yellow-100 text-center p-4 mt-auto">
-            <p className="text-black">© 2024 Practice App. All rights reserved.</p>
-        </footer>
-    </div>
+    <footer className="py-10 text-center text-gray-500 border-t border-gray-800 bg-black">
+      © {new Date().getFullYear()} ChatApp. All rights reserved.
+    </footer>
   )
 }
 

@@ -1,15 +1,17 @@
-export default function AuthCard({ title, children, footer }) {
+export function AuthCard({ title, children, footer }) {
   return (
-    <div className="w-full max-w-md border border-gray-200 rounded-xl shadow-md p-8 bg-gray-50">
+    <div className="w-full bg-black/70 backdrop-blur-xl border border-white/10 rounded-2xl shadow-xl shadow-black/40 p-8">
 
-      <h2 className="text-2xl font-semibold text-gray-800 text-center mb-6">
+      <h2 className="text-2xl font-semibold text-white text-center mb-8 tracking-tight">
         {title}
       </h2>
 
-      {children}
+      <div className="space-y-6">
+        {children}
+      </div>
 
       {footer && (
-        <div className="text-sm text-gray-600 text-center mt-4">
+        <div className="text-sm text-gray-400 text-center mt-8">
           {footer}
         </div>
       )}

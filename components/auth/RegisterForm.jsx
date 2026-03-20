@@ -4,8 +4,8 @@ import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
 
-import AuthCard from "./AuthCard"
-import InputField from "./InputField"
+import { AuthCard } from "./AuthCard"
+import { InputField } from "./InputField"
 
 export default function RegisterForm() {
 
@@ -34,7 +34,6 @@ export default function RegisterForm() {
     setError("")
 
     try {
-
       const res = await fetch("/api/users", {
         method: "POST",
         headers: {
@@ -68,27 +67,24 @@ export default function RegisterForm() {
     <AuthCard
       title="Create Account"
       footer={
-        <>
+        <p className="text-gray-400 text-sm text-center">
           Already have an account?
           <Link
             href="/login"
-            className="ml-1 font-medium text-gray-900"
+            className="ml-1 text-indigo-400 hover:text-indigo-300 font-medium"
           >
             Login
           </Link>
-        </>
+        </p>
       }
     >
 
-      <form
-        onSubmit={handleSubmit}
-        className="space-y-4"
-      >
+      <form onSubmit={handleSubmit} className="space-y-5">
 
         <InputField
           label="Username"
           name="username"
-          placeholder="Enter username"
+          placeholder="your_username"
           value={form.username}
           onChange={handleChange}
         />
@@ -97,7 +93,7 @@ export default function RegisterForm() {
           label="Email"
           name="email"
           type="email"
-          placeholder="Enter email"
+          placeholder="you@example.com"
           value={form.email}
           onChange={handleChange}
         />
@@ -106,13 +102,13 @@ export default function RegisterForm() {
           label="Password"
           name="password"
           type="password"
-          placeholder="Create password"
+          placeholder="••••••••"
           value={form.password}
           onChange={handleChange}
         />
 
         {error && (
-          <p className="text-red-500 text-sm">
+          <p className="text-red-400 text-sm bg-red-500/10 border border-red-500/20 px-3 py-2 rounded-lg">
             {error}
           </p>
         )}
@@ -120,9 +116,9 @@ export default function RegisterForm() {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-gray-800 text-white py-2 rounded-md hover:bg-gray-900 transition disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-3 rounded-xl transition disabled:opacity-50 shadow-lg shadow-indigo-500/20"
         >
-          {loading ? "Creating..." : "Register"}
+          {loading ? "Creating..." : "Create Account"}
         </button>
 
       </form>
